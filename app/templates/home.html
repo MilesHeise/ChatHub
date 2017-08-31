@@ -3,10 +3,11 @@
     <div class="col-md-4 sidebar">
       <span class="glyphicons glyphicons-voice"></span>
       <h1>Bloc Chat, Y'all!</h1>
-      <ul>
-        <li>I think I'll need ng repeat</li>
-        <li>To make rooms appear here?</li>
-      </ul>
+      <table>
+        <tr ng-repeat="room in home.roomList">
+          <td>{{ room.$value }}</td>
+        </tr>
+      </table>
     </div>
     <div class="col-md-8">
       <h2>Isn't it strange when they write "page intentionally left blank"?</h2>
