@@ -2,3 +2,7 @@
   background-color: #d3d3d3;
   height: 100vh;
 }
+
+td {
+  padding: 5px;
+}

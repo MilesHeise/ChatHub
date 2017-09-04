@@ -8,6 +8,9 @@
           <td>{{ room.$value }}</td>
         </tr>
       </table>
+      <div ng-controller='ModalCtrl as modals'>
+        <button type="button" class="btn btn-warning" ng-click="modals.open()">Add a room?</button>
+      </div>
     </div>
     <div class="col-md-8">
       <h2>Isn't it strange when they write "page intentionally left blank"?</h2>
