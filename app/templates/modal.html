@@ -3,10 +3,12 @@
         <h2 class="modal-title">Create Room</h2>
     </div>
     <div class="modal-body">
-        <p>I don't need a body, I need a field to enter value</p>
+        <form>
+          <label>Enter Room Name: <input type="text" ng-model="room"/></label>
+        </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-warning" type="button" ng-click="modalInstance.cancel()">Close</button>
-        <button class="btn btn-primary" type="button">Inititate self-destruct sequence</button>
+        <button class="btn btn-primary" type="button" ng-click="modalInstance.cancel()">Close</button>
+        <button class="btn btn-warning" type="button" ng-click="modalInstance.addNew(room)">Create Room</button>
     </div>
 </div>
