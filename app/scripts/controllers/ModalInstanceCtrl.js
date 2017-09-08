@@ -3,8 +3,8 @@
         this.cancel = function() {
             $uibModalInstance.dismiss('dismiss')
         }
-        this.addNew = function() {
-            $uibModalInstance.close();
+        this.addNew = function(model) {
+            $uibModalInstance.close(model);
         }
     }
 

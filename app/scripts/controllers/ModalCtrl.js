@@ -6,8 +6,9 @@
                 templateUrl: '/templates/modal.html',
                 controller: 'ModalInstanceCtrl as modalInstance'
             })
-            console.log('modal opened')
-            modalInstance.result.then(Room.add(modalInstance.result))
+            modalInstance.result.then(function(results) {
+              Room.add(results);
+            })
         }
     }
     angular
