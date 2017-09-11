@@ -5,7 +5,7 @@
       <h1>Bloc Chat, Y'all!</h1>
       <table>
         <tr ng-repeat="room in home.roomList">
-          <td>{{ room.room }}</td>
+          <td ng-click="setRoom( {{ room.$id }} )">{{ room.room }}</td>
         </tr>
       </table>
       <div ng-controller='ModalCtrl as modals'>
@@ -13,8 +13,10 @@
       </div>
     </div>
     <div class="col-md-8">
-      <h2>Isn't it strange when they write "page intentionally left blank"?</h2>
-      <h3>Cuz, I mean, it isn't blank if you wrote that . . . </h3>
+      <h2>{{ currentRoom }}</h2>
+      <tr ng-repeat="message in messageList">
+        <td>{{ message.content }}</td>
+      </tr>
     </div>
   </div>
 </div>
