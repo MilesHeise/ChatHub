@@ -1,16 +1,14 @@
 (function() {
   function Message($firebaseArray) {
     var Message = {};
-    //what is this for?
     var ref = firebase.database().ref().child("messages");
     var messages = $firebaseArray(ref);
 
-    Message.getByRoomId = function(roomId) {
-        Message.current = messages.orderByChild('roomID').equalTo(roomId)
+    Message.getByRoomId = function(roomID) {
+        return messages.orderByChild('roomID').equalTo(roomID);
     };
 
     return Message;
-    };
   }
 
   angular

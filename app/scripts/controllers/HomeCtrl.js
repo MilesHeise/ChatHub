@@ -1,13 +1,16 @@
 (function() {
     function HomeCtrl(Room, Message) {
       this.roomList = Room.all;
-      this.messageList = Message.current;
-      this.setRoom = function (roomID) {
-        //incomplete I need to query room by id then get name
-        //or wait maybe I don't need any id for this, just set name
-        //and all id stuff happens directly to messages?
-        this.currentRoom = roomID;
+      this.currentRoomId = 0;
+      this.currentRoomName = "Welcome";
+
+      this.setRoom = function (roomID, roomName) {
+        this.currentRoomId = roomID;
+        this.currentRoomName = roomName;
       }
+
+      this.messageList = Message.getByRoomId(this.currentRoomId);
+
     }
 
     angular
