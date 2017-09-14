@@ -5,12 +5,13 @@
      $uibModal.open({
          animation: this.animationsEnabled,
          templateUrl: '/templates/userModal.html',
-         controller: 'UserInstanceCtrl as UserInstance'
+         controller: 'UserCtrl as UserInstance'
      }).result.then(function (results) {
        $cookies.put('blocChatCurrentUser', results);
        console.log(results);
      })
    }
+   console.log(currentUser);
  }
 
  angular
