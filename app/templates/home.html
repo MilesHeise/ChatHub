@@ -18,6 +18,12 @@
         <li class="list-group-item">{{ message.content }}<span class="badge">{{ message.sentAt }}</span></li>
         <li class="list-group-item well well-sm">--{{ message.username }}--</li>
       </ul>
+      <nav class="navbar-inverse navbar-fixed-bottom">
+        <form>
+          <input type="text" ng-model="message"/>
+          <button class="btn btn-warning" type="button" ng-click="home.create(message)">Send</button>
+        </form>
+      </nav>
     </div>
   </div>
 </div>

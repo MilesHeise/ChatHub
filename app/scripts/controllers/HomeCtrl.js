@@ -1,24 +1,33 @@
 (function() {
-    function HomeCtrl(Room, Message) {
+    function HomeCtrl(Room, Message, $cookies) {
       this.roomList = Room.all;
       this.currentRoomId = '';
-      this.userName = '';
-      this.currentRoomName = "Welcome "+this.userName;
+      this.userName = $cookies.get('blocChatCurrentUser');
+      this.currentRoomName = "Welcome " + this.userName;
       var self = this;
-
-      //add a result function to set username
 
 //use destructuring here?
       this.setRoom = function (thing) {
-        var currentRoomId = thing.$id;
+        self.currentRoomId = thing.$id;
         self.currentRoomName = thing.room;
-        self.messageList = Message.getByRoomId(currentRoomId);
+        self.messageList = Message.getByRoomId(self.currentRoomId);
         console.log(self.messageList);
+      }
+
+      this.create = function (model) {
+        var d = new Date();
+        var message = {
+          content: model,
+          roomID: self.currentRoomId,
+          username: self.userName,
+          sentAt: d.toUTCString(),
+        };
+        Message.send(message);
       }
 
     }
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', 'Message', '$cookies', HomeCtrl]);
 })();
