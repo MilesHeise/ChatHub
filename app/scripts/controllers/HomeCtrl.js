@@ -2,8 +2,11 @@
     function HomeCtrl(Room, Message) {
       this.roomList = Room.all;
       this.currentRoomId = '';
-      this.currentRoomName = "Welcome";
+      this.userName = '';
+      this.currentRoomName = "Welcome "+this.userName;
       var self = this;
+
+      //add a result function to set username
 
 //use destructuring here?
       this.setRoom = function (thing) {
