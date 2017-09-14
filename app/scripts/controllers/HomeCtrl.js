@@ -1,15 +1,17 @@
 (function() {
     function HomeCtrl(Room, Message) {
       this.roomList = Room.all;
-      this.currentRoomId = 0;
+      this.currentRoomId = '';
       this.currentRoomName = "Welcome";
+      var self = this;
 
-      this.setRoom = function (roomID, roomName) {
-        this.currentRoomId = roomID;
-        this.currentRoomName = roomName;
+//use destructuring here?
+      this.setRoom = function (thing) {
+        var currentRoomId = thing.$id;
+        self.currentRoomName = thing.room;
+        self.messageList = Message.getByRoomId(currentRoomId);
+        console.log(self.messageList);
       }
-
-      this.messageList = Message.getByRoomId(this.currentRoomId);
 
     }
 

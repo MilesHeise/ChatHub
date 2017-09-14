@@ -6,3 +6,7 @@
 td {
   padding: 5px;
 }
+
+li:nth-child(2) {
+  background-color: #d6d6d6;
+}

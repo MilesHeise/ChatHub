@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-4 sidebar">
-      <span class="glyphicon glyphicon-globe"></span>
+      <span class="glyphicon-glyphicon-globe"></span>
       <h1>Bloc Chat, Y'all!</h1>
       <table>
         <tr ng-repeat="room in home.roomList">
-          <td ng-click="home.setRoom( {{ room.$id }}, {{ room.room }} )">{{ room.room }}</td>
+          <td ng-click="home.setRoom(room)">{{ room.room }}</td>
         </tr>
       </table>
       <div ng-controller='ModalCtrl as modals'>
@@ -14,11 +14,10 @@
     </div>
     <div class="col-md-8">
       <h2>{{ home.currentRoomName }}</h2>
-      <table>
-        <tr ng-repeat="message in message.messageList">
-          <td>{{ message.content }}</td>
-        </tr>
-      </table>
+    <ul ng-repeat="message in home.messageList">
+        <li class="list-group-item">{{ message.content }}<span class="badge">{{ message.sentAt }}</span></li>
+        <li class="list-group-item well well-sm">--{{ message.username }}--</li>
+      </ul>
     </div>
   </div>
 </div>
