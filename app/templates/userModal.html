@@ -3,8 +3,8 @@
         <h2 class="modal-title">Create Username</h2>
     </div>
     <div class="modal-body">
-        <form>
-          <label>Enter Name: <input type="text" ng-model="name"/></label>
+        <form ng-submit="UserInstance.addNew(name)">
+          <label>Enter Name: <input type="text" ng-model="name" autofocus='autofocus'/></label>
         </form>
     </div>
     <div class="modal-footer">

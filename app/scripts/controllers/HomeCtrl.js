@@ -6,12 +6,12 @@
       this.currentRoomName = "Welcome " + this.userName;
       var self = this;
 
-//use destructuring here?
-      this.setRoom = function (thing) {
-        self.currentRoomId = thing.$id;
-        self.currentRoomName = thing.room;
-        self.messageList = Message.getByRoomId(self.currentRoomId);
-        console.log(self.messageList);
+      this.setRoom = function ({$id, room}) {
+        self.currentRoomId = $id;
+        self.currentRoomName = room;
+        self.messageList = Message.getByRoomId($id);
+        this.model = '';
+        $('input').focus();
       }
 
       this.create = function (model) {
@@ -20,10 +20,21 @@
           content: model,
           roomID: self.currentRoomId,
           username: self.userName,
-          sentAt: d.toUTCString(),
+          sentAt: d.toLocaleString(),
         };
+
         Message.send(message);
+        this.model = '';
       }
+
+      this.deleteMessage = Message.delete;
+      this.deleteRoom = function(room) {
+        Room.delete(room);
+        self.currentRoomName = "Welcome " + this.userName;
+        self.currentRoomId = '';
+        Message.roomDelete(room);
+      }
+
 
     }
 

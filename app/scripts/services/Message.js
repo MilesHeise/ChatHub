@@ -13,6 +13,16 @@
        messages.$add(newMessage);
     };
 
+    Message.delete = function(message) {
+      deletedItem = ref.child(message);
+      deletedItem.remove();
+    }
+
+    Message.roomDelete = function(room) {
+      deadLetters = ref.orderByChild('roomID').equalTo(room);
+      deadLetters.remove();
+    }
+
     return Message;
   }
 

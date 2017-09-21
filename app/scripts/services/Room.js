@@ -11,6 +11,11 @@
       rooms.$add(newRoom);
     }
 
+    Room.delete = function(room) {
+      deletedRoom = ref.child(room);
+      deletedRoom.remove();
+    }
+
     return Room;
   }
 

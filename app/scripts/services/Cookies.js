@@ -5,7 +5,9 @@
      $uibModal.open({
          animation: this.animationsEnabled,
          templateUrl: '/templates/userModal.html',
-         controller: 'UserCtrl as UserInstance'
+         controller: 'UserCtrl as UserInstance',
+         backdrop: 'static',
+         keyboard: false
      }).result.then(function (results) {
        $cookies.put('blocChatCurrentUser', results);
        console.log(results);
