@@ -30,9 +30,11 @@
       this.deleteMessage = Message.delete;
       this.deleteRoom = function(room) {
         Room.delete(room);
-        self.currentRoomName = "Welcome " + this.userName;
-        self.currentRoomId = '';
         Message.roomDelete(room);
+        if (currentRoomId == room) {
+          self.currentRoomName = "Welcome " + this.userName;
+          self.currentRoomId = '';
+        }
       }
 
 

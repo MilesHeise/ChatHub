@@ -1,32 +1,31 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4 sidebar">
-      <span class="glyphicon-glyphicon-globe"></span>
       <h1>Bloc Chat, Y'all!</h1>
       <table>
         <tr ng-repeat="room in home.roomList" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
-          <td ng-click="home.setRoom(room)">{{ room.room }}<span ng-show="hovered" ng-click="home.deleteRoom(room.$id)">x</span></td>
+          <td class="text-capitalize" ng-click="home.setRoom(room)">{{ room.room }}<span ng-show="hovered" class="delete" ng-click="home.deleteRoom(room.$id)">X</span></td>
         </tr>
       </table>
       <div ng-controller='ModalCtrl as modals'>
-        <button type="button" class="btn btn-warning" ng-click="modals.open()">Add a room?</button>
+        <button type="button" class="btn btn-warning room" ng-click="modals.open()">Add a room?</button>
       </div>
     </div>
     <div class="col-md-8">
-      <h2>{{ home.currentRoomName }}</h2>
+      <h2 class="text-capitalize">{{ home.currentRoomName }}</h2>
       <h3 ng-hide="home.currentRoomId">Select a room to start chatting!</h3>
     <ul ng-repeat="message in home.messageList" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
-        <li class="list-group-item">{{ message.content }}<span class="badge">{{ message.sentAt }}</span></li>
-        <li class="list-group-item well well-sm">--{{ message.username }}--</li>
+        <li class="list-group-item justify-content-between">{{ message.content }}<span class="badge badge-info">{{ message.sentAt }}</span></li>
+        <li class="list-group-item card card-inverse bg-info">--{{ message.username }}--</li>
         <li class="list-group-item" ng-show="message.username == home.userName && hovered" ng-click="home.deleteMessage(message.$id)">Delete Message?</li>
       </ul>
-      <nav class="navbar-inverse navbar-fixed-bottom">
+      <nav class="navbar navbar-inverse fixed-bottom">
         <form ng-submit="home.create(home.model)" ng-show="home.currentRoomId">
           <div class="input-group">
-          <input type="text" class="form-control" ng-model="home.model" autofocus='autofocus'/>
-          <span class="input-group-btn">
-          <button class="btn btn-warning" type="submit">Send</button>
-          </span>
+            <input type="text" class="form-control" ng-model="home.model" autofocus='autofocus'/>
+              <span class="input-group-btn">
+                <button class="btn btn-warning" type="submit">Send</button>
+              </span>
           </div>
         </form>
       </nav>

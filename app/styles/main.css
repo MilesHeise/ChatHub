@@ -1,16 +1,49 @@
+body {
+  font-family: Calluna Sans, sans-serif;
+}
+
+li, td {
+  font-family: Calluna, serif;
+}
+
+h1, h2, h3 {
+  padding: 15px;
+}
+
+h3 {
+  font-style: italic;
+}
+
 .sidebar {
-  background-color: #d3d3d3;
+  background: linear-gradient(340deg, #708090, #DCDCDC) ;
   height: 100vh;
 }
 
 td {
   padding: 5px;
+  cursor: context-menu;
+}
+
+.room {
+  margin-top: 20px;
+}
+
+.fixed-bottom {
+  margin: 0 0 80px 480px;
+  background-color: #DCDCDC;
+  padding: 20px 0;
+}
+
+li:nth-child(1), td {
+  font-size: 1.5rem;
 }
 
 li:nth-child(2) {
   background-color: #d6d6d6;
 }
 
-li:nth-child(3) {
+li:nth-child(3), .delete {
   cursor: pointer;
+  color: red;
+  padding-left: 10px;
 }
