@@ -1,10 +1,10 @@
 {
-  "name" : "bloc-frontend-project-starter",
-  "version" : "0.0.4",
-  "description" : "Starter project for the Bloc Frontend Web Development",
+  "name" : "ChatHub",
+  "version" : "0.0.1",
+  "description" : "Chat room program for learning Angular features",
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/bloc/bloc-frontend-project-starter"
+    "url" : "https://github.com/MilesHeise/ChatHub"
   },
   "main" : "server.js",
   "scripts" : {

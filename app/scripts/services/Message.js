@@ -6,11 +6,11 @@
 
 
     Message.getByRoomId = function(roomID) {
-        return $firebaseArray(ref.orderByChild('roomID').equalTo(roomID));
+      return $firebaseArray(ref.orderByChild('roomID').equalTo(roomID));
     };
 
     Message.send = function(newMessage) {
-       messages.$add(newMessage);
+      messages.$add(newMessage);
     };
 
     Message.delete = function(message) {
@@ -18,10 +18,11 @@
       deletedItem.remove();
     }
 
-    Message.roomDelete = function(room) {
-      deadLetters = ref.orderByChild('roomID').equalTo(room);
-      deadLetters.remove();
-    }
+    // not functioning yet:
+    // Message.roomDelete = function(room) {
+    //   deadLetters = ref.orderByChild('roomID').equalTo(room);
+    //   deadLetters.remove();
+    // }
 
     return Message;
   }
