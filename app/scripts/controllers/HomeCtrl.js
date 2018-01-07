@@ -11,10 +11,7 @@
       $window.location.reload();
     }
 
-    this.setRoom = function({
-      $id,
-      room
-    }) {
+    this.setRoom = function({$id, room}) {
       self.currentRoomId = $id;
       self.currentRoomName = room;
       self.messageList = Message.getByRoomId($id);
