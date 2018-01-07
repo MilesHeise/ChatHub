@@ -6,6 +6,11 @@ li, td {
   font-family: Calluna, serif;
 }
 
+h1 {
+  color: grey;
+  text-shadow: 2px 2px 4px black;
+}
+
 h1, h2, h3 {
   padding: 15px;
 }
@@ -15,8 +20,10 @@ h3 {
 }
 
 .sidebar {
-  background: linear-gradient(340deg, #708090, #DCDCDC) ;
+  background: linear-gradient(340deg, #708090, #DCDCDC);
   height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 td {
@@ -25,13 +32,17 @@ td {
 }
 
 .room {
-  margin-top: 20px;
+  margin: 10px;
+}
+
+.scrollable {
+  height: 60%;
+  overflow: auto;
 }
 
 .fixed-bottom {
   margin: 0 0 80px 480px;
   background-color: #DCDCDC;
-  padding: 20px 0;
 }
 
 li:nth-child(1), td {
@@ -42,8 +53,11 @@ li:nth-child(2) {
   background-color: #d6d6d6;
 }
 
-li:nth-child(3), .delete {
+.delete {
   cursor: pointer;
+}
+
+tr .delete {
   color: red;
   padding-left: 10px;
 }
