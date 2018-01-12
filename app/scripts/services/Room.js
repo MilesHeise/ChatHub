@@ -10,9 +10,18 @@
       newRoom = {
         room: newRoom
       };
+      ref.once('value').then(snap => {
+        let keys = Object.values(snap.val());
+        for (var i in keys) {
+          for (var j in keys[i]) {
+            if (keys[i][j] == newRoom.room) {
+              return alert("This room already exists");
+            }
+          }
+        }
+      });
       rooms.$add(newRoom);
     }
-    // improvement: room add should check to make sure room name isn't a duplicate before adding
 
     Room.delete = function(room) {
       deletedRoom = ref.child(room);

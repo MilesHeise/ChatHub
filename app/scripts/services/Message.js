@@ -18,11 +18,15 @@
       deletedItem.remove();
     }
 
-    // not functioning yet:
-    // Message.roomDelete = function(room) {
-    //   deadLetters = ref.orderByChild('roomID').equalTo(room);
-    //   deadLetters.remove();
-    // }
+    Message.roomDelete = function(room) {
+      deadLetters = ref.orderByChild('roomID').equalTo(room);
+      deadLetters.once('value').then(snap => {
+        let keys = snap.val();
+        for (var i in keys) {
+          this.delete(i);
+        }
+      });
+    }
 
     return Message;
   }

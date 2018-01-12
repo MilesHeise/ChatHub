@@ -47,11 +47,10 @@
           self.currentRoomId = '';
           self.messageList = null;
         }
+        Message.roomDelete(room);
         Room.delete(room);
       }
     }
-    // improvement: delete room should call a function on message controller to delete that
-    // rooms messages as well and keep database clean
   }
 
   angular
