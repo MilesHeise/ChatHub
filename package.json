@@ -10,7 +10,7 @@
   "scripts" : {
     "start" : "node server.js"
   },
-  "author" : "Bloc Inc",
+  "author" : "Miles Heise",
   "license" : "ISC",
   "dependencies": {
     "hapi" : "~16.4.0",
