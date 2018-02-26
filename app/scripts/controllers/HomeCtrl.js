@@ -16,6 +16,7 @@
       self.currentRoomName = room;
       self.messageList = Message.getByRoomId($id);
       this.model = '';
+      document.querySelector('.scrollable').lastElementChild.scrollIntoView();
       $('input').focus();
     }
 
@@ -30,20 +31,22 @@
 
       Message.send(message);
       this.model = '';
+      document.querySelector('.scrollable').lastElementChild.scrollIntoView();
     }
-    // improvement: when there are a lot of messages it should scroll to show new message
-    // rather than you having to scroll down to see what you just posted. perhaps add
-    // a jquery scroll animate, or a focus command for last child?
 
     this.deleteMessage = Message.delete;
 
     this.deleteRoom = function(room) {
       if (confirm("Are you sure you want to delete this room?\nIt cannot be undone.") == true) {
+
+        // reset to home screen if deleting the room you are currently in
         if (self.currentRoomId == room) {
           self.currentRoomName = "Welcome " + this.userName;
           self.currentRoomId = '';
           self.messageList = null;
         }
+
+        // delete all messages associated with room before deleting room for clean database
         Message.roomDelete(room);
         Room.delete(room);
       }

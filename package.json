@@ -1,6 +1,6 @@
 {
   "name" : "ChatHub",
-  "version" : "0.0.1",
+  "version" : "0.1.1",
   "description" : "Chat room program for learning Angular features",
   "repository" : {
     "type" : "git",
@@ -10,7 +10,7 @@
   "scripts" : {
     "start" : "node server.js"
   },
-  "author" : "Bloc Inc",
+  "author" : "Miles Heise",
   "license" : "ISC",
   "dependencies": {
     "hapi" : "~16.4.0",

@@ -36,8 +36,13 @@ td {
 }
 
 .scrollable {
-  height: 60%;
+  height: 70vh;
   overflow: auto;
+}
+
+.message-box {
+  height: 100%;
+  overflow: hidden;
 }
 
 .fixed-bottom {

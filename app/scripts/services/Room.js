@@ -10,16 +10,19 @@
       newRoom = {
         room: newRoom
       };
+
+      // first check if room name already exists
       ref.once('value').then(snap => {
         let keys = Object.values(snap.val());
-        for (var i in keys) {
-          for (var j in keys[i]) {
+        for (let i in keys) {
+          for (let j in keys[i]) {
             if (keys[i][j] == newRoom.room) {
               return alert("This room already exists");
             }
           }
         }
       });
+
       rooms.$add(newRoom);
     }
 

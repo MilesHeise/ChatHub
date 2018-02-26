@@ -18,11 +18,12 @@
       deletedItem.remove();
     }
 
+    // if a room is deleted, delete all messages within that room first
     Message.roomDelete = function(room) {
       deadLetters = ref.orderByChild('roomID').equalTo(room);
       deadLetters.once('value').then(snap => {
         let keys = snap.val();
-        for (var i in keys) {
+        for (let i in keys) {
           this.delete(i);
         }
       });

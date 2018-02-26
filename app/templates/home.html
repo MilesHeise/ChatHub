@@ -1,22 +1,32 @@
 <div class="container-fluid">
   <div class="row">
+
     <div class="col-md-4 sidebar">
+
       <h1>ChatHub, Y'all!</h1>
+
       <div ng-controller='ModalCtrl as modals'>
         <button type="button" class="btn btn-warning room" ng-click="modals.open()">Add a room?</button>
       </div>
+
       <button type="button" class="btn btn-outline-danger room btn-sm" ng-click="home.logOut()">Log Out?</button>
+
       <table>
         <tr ng-repeat="room in home.roomList" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
           <td class="text-capitalize" ng-click="home.setRoom(room)">{{ room.room }}<span ng-show="hovered" class="delete" ng-click="home.deleteRoom(room.$id)">&times;</span></td>
         </tr>
       </table>
+
     </div>
-    <div class="col-md-8">
+
+    <div class="col-md-8 message-box">
+
       <h2 class="text-capitalize">{{ home.currentRoomName }}</h2>
+
       <h3 ng-hide="home.currentRoomId">Select a room to start chatting!</h3>
+
       <div class="scrollable">
-        <ul ng-repeat="message in home.messageList" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
+        <ul class="test" ng-repeat="message in home.messageList" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
           <li class="list-group-item justify-content-between">{{ message.content }}
             <span ng-hide="message.username == home.userName && hovered" class="badge badge-info">{{ message.sentAt }}</span>
             <span ng-show="message.username == home.userName && hovered" class="badge badge-danger delete" ng-click="home.deleteMessage(message.$id)">Delete Message?</span>
@@ -24,6 +34,7 @@
           <li class="list-group-item card card-inverse bg-info">--{{ message.username }}--</li>
         </ul>
       </div>
+
       <nav class="navbar navbar-inverse fixed-bottom">
         <form ng-submit="home.create(home.model)" ng-show="home.currentRoomId">
           <div class="input-group">
@@ -34,6 +45,8 @@
           </div>
         </form>
       </nav>
+
     </div>
+
   </div>
 </div>
