@@ -11,7 +11,7 @@
         room: newRoom
       };
 
-      // first check if room name already exists
+      // first dig into the DB to check if room name already exists
       ref.once('value').then(snap => {
         let keys = Object.values(snap.val());
         for (let i in keys) {
@@ -24,12 +24,12 @@
       });
 
       rooms.$add(newRoom);
-    }
+    };
 
     Room.delete = function(room) {
       deletedRoom = ref.child(room);
       deletedRoom.remove();
-    }
+    };
 
     return Room;
   }
